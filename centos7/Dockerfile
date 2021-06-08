@@ -2,6 +2,8 @@ FROM centos
 
 RUN yum -y install openssh-server
 
+RUN yum install -y passwd
+
 # Add a new user and set the password through a pipeline to avoid manual input
 RUN useradd remote_user && \
     echo "1234" | passwd remote_user --stdin && \
