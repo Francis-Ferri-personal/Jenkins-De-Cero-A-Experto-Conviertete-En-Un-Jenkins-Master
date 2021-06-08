@@ -21,7 +21,7 @@ RUN chown remote_user:remote_user -R  /home/remote_user && \
 # Se envia la salida a dev/null por que da un pequeño errorsito 
 #RUN /usr/sbin/sshd-kegen > /dev/null 2>&1
 RUN /usr/bin/ssh-keygen -A
-
+RUN rm /run/nologin
 
 # El -D es modo en primer plano
 CMD /usr/sbin/sshd -D
