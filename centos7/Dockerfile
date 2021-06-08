@@ -17,9 +17,5 @@ COPY remote-key.pub /home/remote_user/.ssh/authorized_keys
 RUN chown remote_user:remote_user -R  /home/remote_user && \
     chmod 600 /home/remote_user/.ssh/authorized_keys
 
-# Esto es un truco por que los contenedores no hacen este proceso automaticamente el cual si se hace en la distro
-# Se envia la salida a dev/null por que da un pequeño errorsito 
-RUN /usr/sbin/sshd-kegen > /dev/null 2>&1
-
 # El -D es modo en primer plano
 CMD /usr/sbin/sshd -D
