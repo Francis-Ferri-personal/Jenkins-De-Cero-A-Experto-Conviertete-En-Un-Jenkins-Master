@@ -23,5 +23,13 @@ RUN chown remote_user:remote_user -R  /home/remote_user && \
 RUN /usr/bin/ssh-keygen -A
 RUN rm /run/nologin
 
+# Instalar el cliente de MySQL
+RUN yum -y install mysql
+
+# Instalar AWS CLI
+RUN yum -y install epel-release && \
+    yum -y install python-pip && \
+    pip install awscli
+
 # El -D es modo en primer plano
 CMD /usr/sbin/sshd -D
