@@ -27,9 +27,9 @@ RUN rm /run/nologin
 RUN yum -y install mysql
 
 # Instalar AWS CLI
-RUN yum -y install epel-release && \
-    yum -y install python-pip && \
-    pip install awscli
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    ./aws/install
 
 # El -D es modo en primer plano
 CMD /usr/sbin/sshd -D
