@@ -4,6 +4,7 @@ FROM jenkins/jenkins
 USER root
 
 RUN curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py" && \
+    apt install python && \
     python get-pip.py
 
 # Instala ansible y actualiza pip
