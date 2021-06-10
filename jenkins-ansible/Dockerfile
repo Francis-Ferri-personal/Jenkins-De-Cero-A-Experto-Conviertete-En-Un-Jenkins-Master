@@ -6,6 +6,6 @@ USER root
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367 && \
     apt update
     
-RUN apt install ansible
+RUN apt install ansible -y
 
 USER jenkins
