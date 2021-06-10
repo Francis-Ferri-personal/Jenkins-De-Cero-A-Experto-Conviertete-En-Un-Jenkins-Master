@@ -4,10 +4,8 @@ FROM jenkins/jenkins
 USER root
 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367 && \
-    apt update && \
-    apt install ansible
-
-# Instala ansible y actualiza pip
-RUN pip install -U ansible
+    apt update
+    
+RUN apt install ansible
 
 USER jenkins
