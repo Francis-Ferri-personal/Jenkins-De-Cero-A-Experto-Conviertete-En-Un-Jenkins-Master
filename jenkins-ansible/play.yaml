@@ -3,4 +3,6 @@
 # Esta esrtablecido en el inventario
 - hosts: test1
   tasks:
-    - shell: echo Hola Mundo desde Ansible  y Jenkins > /tmp/hola-ansible
+    - debug:
+        var: MSG
+    # - shell: echo $MSG  y Jenkins > /tmp/hola-ansible
