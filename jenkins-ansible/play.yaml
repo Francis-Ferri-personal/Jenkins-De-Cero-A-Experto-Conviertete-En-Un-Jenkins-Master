@@ -1,0 +1,6 @@
+# Primer playbook en YAML
+
+# Esta esrtablecido en el inventario
+- hosts: test1
+  tasks:
+    - shell: echo Hola Mundo > /tmp/hola-ansible
