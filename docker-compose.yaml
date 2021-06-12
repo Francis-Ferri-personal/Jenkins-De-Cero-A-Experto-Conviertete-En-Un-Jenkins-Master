@@ -33,7 +33,7 @@ services:
     container_name: web
     image: ansible-web
     build:
-      context: jenkins_ansible/web
+      context: jenkins-ansible/web
     ports:
       - "80:80"
     networks:
