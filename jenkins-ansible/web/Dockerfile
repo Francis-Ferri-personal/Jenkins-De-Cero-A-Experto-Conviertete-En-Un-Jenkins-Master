@@ -16,8 +16,7 @@ RUN                                                                          \
     php-mcrypt                                                            \
     php-mbstring                                                          \
     php-zip                                                               \
-    php-gd                                                                \
-     --enablerepo=ius && yum clean all
+    php-gd
 
 EXPOSE 80 443
 
