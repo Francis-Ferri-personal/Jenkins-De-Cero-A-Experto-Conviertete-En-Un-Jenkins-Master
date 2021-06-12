@@ -3,7 +3,7 @@ FROM remote-host
 COPY ./conf/nginx.repo /etc/yum.repos.d/nginx.repo
 
 RUN                                                                          \
-  yum -y install nginx-1.12.2 openssl --enablerepo=nginx                  && \
+  yum -y install nginx openssl --enablerepo=nginx                  && \
   yum -y install https://centos7.iuscommunity.org/ius-release.rpm         && \
   yum -y install                                                             \
     php71u-fpm                                                               \
