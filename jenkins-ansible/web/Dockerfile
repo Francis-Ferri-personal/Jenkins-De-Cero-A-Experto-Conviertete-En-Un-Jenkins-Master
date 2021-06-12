@@ -4,19 +4,19 @@ COPY ./conf/nginx.repo /etc/yum.repos.d/nginx.repo
 
 RUN                                                                          \
   yum -y install nginx openssl --enablerepo=nginx                  && \
-  yum -y install https://repo.ius.io/ius-release-el7.rpm https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm         && \
+  yum install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm  && yum update -y        && \
   yum -y install                                                             \
-    php71u-fpm                                                               \
-    php71u-cli                                                               \
-    php71u-mysqlnd                                                           \
-    php71u-soap                                                              \
-    php71u-xml                                                               \
-    php71u-zip                                                               \
-    php71u-json                                                              \
-    php71u-mcrypt                                                            \
-    php71u-mbstring                                                          \
-    php71u-zip                                                               \
-    php71u-gd                                                                \
+    php-fpm                                                               \
+    php-cli                                                               \
+    php-mysqlnd                                                           \
+    php-soap                                                              \
+    php-xml                                                               \
+    php-zip                                                               \
+    php-json                                                              \
+    php-mcrypt                                                            \
+    php-mbstring                                                          \
+    php-zip                                                               \
+    php-gd                                                                \
      --enablerepo=ius && yum clean all
 
 EXPOSE 80 443
