@@ -13,7 +13,6 @@ RUN                                                                          \
     php-xml                                                               \
     php-zip                                                               \
     php-json                                                              \
-    php-mcrypt                                                            \
     php-mbstring                                                          \
     php-zip                                                               \
     php-gd
