@@ -3,7 +3,7 @@ tasks:
   - Transfiere el template hacia web1
     template: 
       src: reemplazo.j2
-      dest: /var/www/html/index.html
+      dest: /usr/share/nginx/html/index.html
 
 # Este fue el original, pero la imagen no me sal, pinche php
       # src: table.j2
