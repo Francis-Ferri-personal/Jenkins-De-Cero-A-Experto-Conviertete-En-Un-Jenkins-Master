@@ -1,9 +1,9 @@
-hosts: web1
-tasks:
-  - name: Transfiere el template hacia web1
-    template:
-      src: reemplazo.j2
-      dest: /usr/share/nginx/html/index.html
+- hosts: web1
+  tasks:
+    - name: Transfiere el template hacia web1
+      template:
+        src: reemplazo.j2
+        dest: /usr/share/nginx/html/index.html
 # Este fue el original, pero la imagen no me sal, pinche php
 # src: table.j2
 # dest: /var/www/html/index.php
