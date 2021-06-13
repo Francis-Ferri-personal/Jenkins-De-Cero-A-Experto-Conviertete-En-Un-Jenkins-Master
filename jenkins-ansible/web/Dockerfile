@@ -3,7 +3,7 @@ FROM remote-host
 COPY ./conf/nginx.repo /etc/yum.repos.d/nginx.repo
 
 RUN                                                                          \
-   yum -y install nginx-1.12.2 openssl --enablerepo=nginx                 && \
+  yum -y install nginx openssl --enablerepo=nginx                  && \
   yum install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm  && yum update -y        && \
   yum -y install                                                             \
     php-fpm                                                               \
