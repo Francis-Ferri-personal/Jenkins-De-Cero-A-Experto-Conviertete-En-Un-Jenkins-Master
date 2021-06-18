@@ -1,0 +1,24 @@
+
+
+
+#!/bin/bash
+
+
+# Get branch name from ref head
+
+if ! [ -t 0 ]; then
+  read -a ref
+fi
+IFS='/' read -ra REF <<< "${ref[2]}"
+branch="${REF[2]}"
+
+if [ $branch == "master" ]; then
+  API_JENKINS=1176390b4c04daa16337656e9c0cd9f041
+  curl -u jenkins:$API_JENKINS -X POST http://jenkins:8080/job/maven-job/build?delay=0sec
+
+  if [ $? -eq 0 ] ; then
+    echo "*** Ok"
+  else
+    echo "*** Error"
+  fi
+fi
