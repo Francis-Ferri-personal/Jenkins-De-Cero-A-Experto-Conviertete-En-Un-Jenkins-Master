@@ -10,7 +10,7 @@ job('job_dsl_example') {
     }
 
     scm {
-        git('https://github.com/jenkins-docs/simple-java-maven-app', 'master')
+        git('https://github.com/jenkins-docs/simple-java-maven-app', 'master',{node -> node / 'extensions' << '' })
     }
 
     // Quitalo si necesitas ejecutar este ejemplo ahora mismo 
