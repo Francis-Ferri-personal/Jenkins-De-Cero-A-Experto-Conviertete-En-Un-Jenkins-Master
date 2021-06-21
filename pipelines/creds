@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+    
+    environment {
+        secretito = credentials('MY-SECRET')
+    }
+    stages {
+        stage('Example stage 1') {
+            steps {
+                sh 'echo $secretito'
+            }
+        }
+    }
+}
