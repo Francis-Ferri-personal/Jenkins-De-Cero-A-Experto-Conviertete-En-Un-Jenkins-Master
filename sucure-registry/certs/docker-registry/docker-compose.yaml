@@ -1,0 +1,21 @@
+version: '3'
+services:
+  nginx:
+    image: "nginx:alpine"
+    ports:
+        - 5043:443
+    networks:
+        - net
+    volumes:
+      - ./auth:/etc/nginx/conf.d #mapeamos los certificados
+      - ./auth/nginx.conf:/etc/nginx/nginx.conf:ro # Mapeamos la configuracion de nginx
+  registry:
+    image: registry:2
+    ports:
+      - 127.0.0.1:5000:5000
+    volumes:
+      - ./data:/var/lib/registry # persistimos la data del registry
+    networks:
+      - net
+networks:
+  net:
