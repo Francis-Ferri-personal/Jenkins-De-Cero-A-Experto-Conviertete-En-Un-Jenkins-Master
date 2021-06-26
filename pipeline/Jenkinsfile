@@ -2,14 +2,23 @@ pipeline {
 
     agent any
 
+    environment {
+        PASS=credentials('registry-pass')
+    }
+
     stages {
 
         stage('Build') {
             steps {
                 sh '''
-                        ./jenkins/build/mvn.sh -B -DskipTests clean package
+                        ./jenkins/build/mvn.sh mvn -B -DskipTests clean package
                         ./jenkins/build/build.sh
                     '''   
+            }
+            post {
+                success {
+                    archiveArtifacts artifacts: 'java-app/target/*.jar', fingerprint: true
+                }
             }
 
         }                        
@@ -17,17 +26,21 @@ pipeline {
             steps {
 		        sh './jenkins/test/test.sh mvn test' 
             }
+            post {
+                always {
+                    junit 'java-app/target/surefire-reports/*xml'
+                }
+            }
 	    }
 
-        }
         stage('Push') {
             steps {
-		        sh 'echo push'
+		        sh 'jenkins/push/push.sh'
             }
         }
         stage('Deploy') {
             steps {
-       		    sh 'echo deploy'
+       		    sh 'jenkins/deploy/deploy.sh'
             }
         }
     }

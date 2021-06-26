@@ -3,4 +3,5 @@ echo "*************"
 echo "Building jar!"
 echo "*************"
 
-docker run --rm -v /root/.m2:/root/.m2 -v $PWD/java-app:/app -w /app -ti maven:3.8.1-jdk-11 "$@"
+PROJ=/home/ferri_ripalda_francis/Jenkins-De-Cero-A-Experto-Conviertete-En-Un-Jenkins-Master/jenkins_home/workspace/pipeline-docker-maven
+docker run --rm -v /root/.m2:/root/.m2 -v $PROJ/java-app:/app -w /app maven:3.8.1-jdk-11 "$@"
